@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class Lab_06_02_FuelCosts {
     public static void main(String[] args) {
-        // Create a Scanner object to read input from the console
+        // To create a Scanner object to read input from the console
         Scanner scanner = new Scanner(System.in);
 
         // Prompt the user to enter the number of gallons of gas in the tank

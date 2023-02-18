@@ -1,38 +1,31 @@
 import java.util.Scanner;
 public class Lab_06_04_MetricConverter {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        double meters, miles, feet, inches;
+        final double MILES_PER_METER = 0.000621371;
+        final double FEET_PER_METER = 3.28084;
+        final double INCHES_PER_METER = 39.3701;
 
-        // Ask for the lengths of the sides of the rectangle
-        System.out.print("Enter the length of the rectangle: ");
-        double length = getPositiveDouble(scanner);
-        System.out.print("Enter the width of the rectangle: ");
-        double width = getPositiveDouble(scanner);
+        Scanner input = new Scanner(System.in);
 
-        // Calculate the area and perimeter of the rectangle
-        double area = length * width;
-        double perimeter = 2 * (length + width);
+        System.out.print("Enter a measurement in meters: ");
 
-        // Calculate the length of the diagonal using the Pythagorean theorem
-        double diagonal = Math.sqrt(Math.pow(length, 2) + Math.pow(width, 2));
+        // Check for valid input
+        if (input.hasNextDouble()) {
+            meters = input.nextDouble();
 
-        // Print the results
-        System.out.println("The area of the rectangle is: " + area);
-        System.out.println("The perimeter of the rectangle is: " + perimeter);
-        System.out.println("The length of the diagonal is: " + diagonal);
-    }
+            // Perform conversions
+            miles = meters * MILES_PER_METER;
+            feet = meters * FEET_PER_METER;
+            inches = meters * INCHES_PER_METER;
 
-    // Helper method to get a positive double from the user
-    private static double getPositiveDouble(Scanner scanner) {
-        while (true) {
-            if (scanner.hasNextDouble()) {
-                double num = scanner.nextDouble();
-                if (num > 0) {
-                    return num;
-                }
-            }
-            System.out.print("Invalid input. Please enter a positive number: ");
-            scanner.next();
+            // Output results
+            System.out.println(meters + " meters is equal to:");
+            System.out.println(miles + " miles");
+            System.out.println(feet + " feet");
+            System.out.println(inches + " inches");
+        } else {
+            System.out.println("Invalid input. Please enter a number.");
         }
     }
 }
